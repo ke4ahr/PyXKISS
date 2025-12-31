@@ -1,0 +1,2 @@
+# PyXKISS
+KISS and XKISS Protocol LGPLv3.0
