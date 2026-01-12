@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyxkiss"
+version = "1.0.0"
+description = "Comprehensive Python library for KISS, XKISS (multi-drop/polling), SMACK, with queueing, checksums, and robust error handling"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "LGPL-3.0-or-later"}
+authors = [{name = "Kris Kirby", email = "ke4ahr@gmail.com"}]
+keywords = ["amateur radio", "KISS", "XKISS", "SMACK", "AX.25", "TNC", "packet radio"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Telecommunications Industry",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Ham Radio",
+]
+
+dependencies = [
+    "pyserial>=3.5",
+    "pyax25-22>=0.5.97",  # If using AX.25 helpers (optional)
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-mock>=3.0",
+    "black",
+    "flake8",
+    "mypy",
+    "sphinx",
+    "sphinx-rtd-theme",
+]
+
+[project.urls]
+Homepage = "https://github.com/ke4ahr/PyXKISS"
+Repository = "https://github.com/ke4ahr/PyXKISS.git"
+Issues = "https://github.com/ke4ahr/PyXKISS/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyxkiss*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--cov=pyxkiss --cov-report=term-missing --cov-report=html --cov-report=xml --cov-fail-under=90"
+testpaths = ["tests"]
